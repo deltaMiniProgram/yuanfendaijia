@@ -39,6 +39,7 @@ Page({
     }
 
     //请求百度地图api并返回模糊位置
+
     that.initLocation();
   },
 
@@ -46,7 +47,9 @@ Page({
    * 点击个人信息图标
    */
   userInfoClick: function(){
-    const { token } = app.globalData;
+    // const { token } = app.globalData;
+    const token = wx.getStorageSync('token');
+
     if (!token||true) {
       wx.navigateTo({
         url: "/pages/login/login"
@@ -59,7 +62,7 @@ Page({
   },
 
   /**
-   * 点击目的地
+   * 点击起始位置
    */
   handleStartClick: function(){
     const that = this;
@@ -84,7 +87,8 @@ Page({
    * 点击联系客服
    */
   contactUs: () => {
-    const service_tel = app.globalData.SERVICE_TEL;
+    // const service_tel = app.globalData.SERVICE_TEL;
+    const service_tel = wx.getStorageSync('SERVICE_TEL');
     wx.makePhoneCall({
       phoneNumber: service_tel
     })
@@ -95,7 +99,7 @@ Page({
    */
   initLocation: function(){
     const that = this;
-
+    
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -224,5 +228,11 @@ Page({
     })
     //必须请求定位，改变中心点坐标
     that.requestLocation();
+  },
+
+
+//页面卸载时清除本地缓存
+  onUnload:function(){
+    wx.clearStorageSync();
   }
 })

@@ -6,10 +6,11 @@
   
   <view class="list_container">
     <i-cell-group>
-        <i-cell title="订单" is-link>
+        <i-cell title="订单" is-link url="/pages/order/order">
           <i-icon type="document_fill" slot="icon" />
         </i-cell>
-        <i-cell title="账户" is-link url="/pages/index/index">
+        <!-- <i-cell title="账户" is-link url="/pages/account/account"> -->
+        <i-cell title="账户" is-link bindtap="goToaccount" data-balance="{{balance}}">
           <i-icon type="redpacket_fill" slot="icon" />
         </i-cell>
         <i-cell title="消息" is-link url="/pages/index/index">

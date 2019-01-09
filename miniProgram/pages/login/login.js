@@ -2,7 +2,7 @@ const { $Toast } = require('../../components/base/index');
 const { checkMobile, checkPhoneCode, fetchData, urlFormatter } = require('../../utils/util.js');
 // 获取app变量
 const app = getApp();
-const { SERVER_IP } = app.globalData;
+const  SERVER_IP  = wx.getStorageSync('SERVER_IP');
 
 Page({
   data: {
@@ -123,7 +123,8 @@ Page({
    */
   login: function() {
     const that = this;
-    const { openId } = app.globalData;
+    const openId = wx.getStorageSync('openId')
+    // const { openId } = app.globalData;
     
     that.setData({
       isLogin: false,
@@ -140,15 +141,21 @@ Page({
       openId,
      })
       .then( res => {
-        const { data: { map: { USER, token, openId }, success, message } } = res;
+        const { data: { map: { USER, token, openId }, success, message,data } } = res;
         if(success){
-          app.globalData.user_info = { ...USER };
-          app.globalData.token = data;
+          wx.setStorageSync('user_info', { ...USER })
+          wx.setStorageSync('token', data)
+          // app.globalData.user_info = { ...USER };
+          // app.globalData.token = data;
           wx.navigateBack({
             delta: 1,
             isLogin: true,
             btnText: '登录',
           })
+          //登录成功，页面跳转到user页面
+          // wx.navigateTo({
+          //   url: "/pages/user/user",
+          // })
         }else{
           $Toast({
             content: message,
@@ -172,5 +179,12 @@ Page({
     wx.navigateTo({
       url: "/pages/protocol/protocol"
     });
+  },
+
+  goToUser(){
+    wx.navigateTo({
+      url: "/pages/user/user"
+    });
   }
+
 });
