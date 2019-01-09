@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/suggestion/suggestion",
+    "pages/regeocoding/regeocoding",
+    "pages/login/login",
+    "pages/protocol/protocol"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#f8f8f9",
+    "navigationBarBackgroundColor": "#262930",
+    "navigationBarTitleText": "缘份代驾",
+    "navigationBarTextStyle": "white"
+  }
+}
