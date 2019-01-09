@@ -2,14 +2,16 @@
 const { urlFormatter, fetchData } = require('./utils/util.js');
 
 App({
+
   // 全局变量
-  globalData: {
-    SERVER_IP: "http://47.94.0.63",
-    SERVICE_TEL: '400 828 3718',
-    user_info: '',
-    openId: '',
-    token: ''
-  },
+  // globalData: {
+  //   SERVER_IP: "http://47.94.0.63",
+  //   SERVICE_TEL: '400 828 3718',
+  //   user_info: '',
+  //   openId: '',
+  //   token: ''
+  // },
+  // 由本地存储替代
 
   // 启动小程序
   onLaunch: function () {
@@ -23,6 +25,10 @@ App({
     that.login();
     // 获取用户信息
     // that.getUserInfo()
+    
+    //启动小程序时存储数据
+    wx.setStorageSync('SERVER_IP', 'http://47.94.0.63');
+    wx.setStorageSync('SERVICE_TEL', '400 828 3718');
   },
 
   // 登录
@@ -32,13 +38,19 @@ App({
     wx.login({
       success: function(res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        const url = urlFormatter(that.globalData.SERVER_IP, '/customer/wxlogin')
+        const SERVER_IP = wx.getStorageSync('SERVER_IP');
+        const url = urlFormatter(SERVER_IP, '/customer/wxlogin')
         fetchData(url, { code: res.code })
           .then(resData => {
+            console.log('resData', resData)
             const { data: { map: { USER, token, openId } } } = resData;
-            that.globalData.openId = openId;
-            that.globalData.token = token;
-            that.globalData.user_info = {...USER}
+            // that.globalData.openId = openId;
+            wx.setStorageSync('openId', openId);
+            // that.globalData.token = token;
+            wx.setStorageSync('token', token);
+            // that.globalData.user_info = {...USER};
+            wx.setStorageSync('user_info', { ...USER });
+
           })
           .catch(err => console.log)
       }
@@ -54,7 +66,9 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              // this.globalData.userInfo = res.userInfo
+              const { userInfo} = res;
+              wx.setStorageSync('user_info', userInfo);
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
