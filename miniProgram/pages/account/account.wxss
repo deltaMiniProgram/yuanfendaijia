@@ -1,0 +1,25 @@
+/* pages/account/account.wxss */
+.account{
+  margin-bottom:80rpx;
+}
+.accountSum text {
+  line-height:100rpx;
+}
+.accountSum .money {
+  color:#02974d;
+  font-size: 70rpx;
+  font-weight: bold;
+  padding-right:10rpx;
+}
+.accountSum .detail{
+  float:right;
+  line-height: 110rpx;
+}
+
+.invoice{
+  color:#bbbbbb;
+}
+
+.i-cell{
+  padding:0 60rpx 0 20rpx;
+}

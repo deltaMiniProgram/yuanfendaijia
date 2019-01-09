@@ -1,0 +1,24 @@
+<!--pages/account/account.wxml-->
+<view class="account">
+<i-panel class="accountSum" title="余额">
+    <i-cell  is-link  bindtap="goToDetail">
+        <text class='money'>{{balance}}</text>
+        <text>元</text>
+        <text class='detail'>明细</text>
+    </i-cell>
+</i-panel>
+</view>
+
+  <i-panel class="cell-panel-demo">
+    <i-cell-group>
+      <i-cell title="充值" is-link bindtap="goToRecharge">
+        <i-icon type="transaction_fill" slot="icon" size="18" color="#2d8cf0" />
+      </i-cell>
+      <i-cell title="优惠券" is-link bindtap="goToCoupon">
+        <i-icon type="coupons_fill" slot="icon" size="18" color="#19be6b" />
+      </i-cell>
+      <i-cell title="申请发票（敬请期待）" class="invoice" is-link>
+        <i-icon type="accessory" slot="icon" size="18" color="#1c2438" />
+      </i-cell>
+    </i-cell-group>
+  </i-panel>

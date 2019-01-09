@@ -1,0 +1,8 @@
+/* pages/order/order.wxss */
+.orderList text{
+  line-height:100rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+}

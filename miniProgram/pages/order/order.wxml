@@ -1,0 +1,12 @@
+<!--pages/order/order.wxml-->
+<view></view>
+<i-panel class="orderList" title="未完成的订单">
+      <i-cell >
+      <text>暂无执行订单</text>
+      </i-cell>
+  </i-panel>
+  <i-panel class="cell-panel-demo" title="已完成的订单">
+    <i-cell-group>
+    </i-cell-group>
+  </i-panel>
+
