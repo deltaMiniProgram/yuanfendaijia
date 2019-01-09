@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
+    "pages/order/order",
+    "pages/account/account",
     "pages/suggestion/suggestion",
     "pages/regeocoding/regeocoding",
     "pages/login/login",
