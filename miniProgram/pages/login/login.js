@@ -123,8 +123,9 @@ Page({
    */
   login: function() {
     const that = this;
-    const { openId } = app.globalData;
-    
+    // const { openId } = app.globalData;
+    const { openId } = wx.getStorageSync('historys');
+    console.log("openId", openId)
     that.setData({
       isLogin: false,
       btnText: '登录中...'
@@ -140,10 +141,12 @@ Page({
       openId,
      })
       .then( res => {
+        console.log("res",res);
         const { data: { map: { USER, token, openId }, success, message } } = res;
         if(success){
-          app.globalData.user_info = { ...USER };
-          app.globalData.token = data;
+          // app.globalData.user_info = { ...USER };
+          // app.globalData.token = token;
+          wx.setStorageSync('historys', {  token, user_info: { ...USER } })
           wx.navigateBack({
             delta: 1,
             isLogin: true,
