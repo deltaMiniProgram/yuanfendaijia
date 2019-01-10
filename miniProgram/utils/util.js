@@ -3,7 +3,8 @@
 */
 const bmap = require('../libs/bmap-wx.min.js');
 const BMap = new bmap.BMapWX({
-  ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
+  // ak: 'iA5vaGj0mvWw61lGzFUkg0A47uAGV5x7'
+  ak:'GCW6cnETeYTja8ROKS3EOmgzB8QYMSDD'
 });
 
 /**

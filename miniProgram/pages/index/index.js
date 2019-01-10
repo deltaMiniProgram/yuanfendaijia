@@ -24,8 +24,12 @@ Page({
     showNoDriverTips: true,
     isAppointment: false
   },
-
+  // 一键呼叫
+  handleClick(){
+    wx.makePhoneCall({ phoneNumber: app.globalData.SERVICE_TEL})
+  },
   onLoad: function (query) {
+    console.log("query",query)
     const that = this;
     const {position, point} = query;
     if (point === "start"){
@@ -97,8 +101,10 @@ Page({
     const that = this;
 
     wx.getLocation({
-      type: 'wgs84',
+      // type: 'wgs84',
+      type: 'gcj02',
       success: function (res) {
+        console.log(2332)
         that.setData({
           latitude: res.latitude,//经度
           longitude: res.longitude//纬度
@@ -106,6 +112,7 @@ Page({
         BMap.regeocoding({
           location: that.data.latitude + ',' + that.data.longitude,
           success: function (res) {
+            console.log("weizhi", res.originalData.result.formatted_address,res)
             that.setData({
               startAddress: res.originalData.result.formatted_address
             })
