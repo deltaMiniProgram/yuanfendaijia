@@ -1,0 +1,13 @@
+<view>
+  <i-cell-group i-class="account-remain">
+  <i-cell title="余额" i-class="account-remain-bg"></i-cell>
+    <i-cell is-link value="明细">
+      <text class='account-remain-num'>0.0</text>元
+    </i-cell>
+  </i-cell-group>
+  <i-cell-group>
+    <i-cell is-link><i-icon type="financial_fill" color='#ff0000' size='20'/><text class='account-remain-margin'>充值</text></i-cell>
+    <i-cell is-link><i-icon type="coupons_fill" color='green' size='20'/><text class='account-remain-margin'>优惠券</text></i-cell>
+    <i-cell is-link><i-icon type="businesscard_fill" color='#ddd' size='20'/><text class='account-remain-margin'>申请发票</text></i-cell>
+  </i-cell-group>
+</view>

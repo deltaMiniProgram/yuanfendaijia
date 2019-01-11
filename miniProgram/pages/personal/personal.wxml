@@ -1,0 +1,22 @@
+<view>
+  <i-cell-group>
+    <i-cell is-link url="/pages/userInfo/userInfo">
+      <view class='personal-user'>
+        <view class='personal-user-img'>
+          <i-avatar size="large" shape="circle" src="../../img/user.jpg"></i-avatar>
+        </view>
+        <view class='personal-user-info'>
+          <view>先生/女士</view>
+          <view>手机号:17728378</view>
+        </view>
+      </view>
+      <view class='personal-user-remain'>
+        您当前可用余额为
+        <text class='personal-user-money'>0.0</text>元
+      </view>
+    </i-cell>
+    <i-cell title="订单" is-link url="/pages/order/order"></i-cell>
+    <i-cell title="账户" is-link url="/pages/account/account" value="充值、余额、发票"></i-cell>
+    <i-cell title="消息" is-link url="/pages/dashboard/index"></i-cell>
+  </i-cell-group>
+</view>

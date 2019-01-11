@@ -1,0 +1,9 @@
+<view>
+  <i-cell-group>
+    <i-cell title="头像" is-link bind:click="selectImg"></i-cell>
+    <i-cell title="姓名" is-link bind:click="inputName"></i-cell>
+    <i-cell title="性别" is-link></i-cell>
+    <i-cell title="手机" value="1782397"></i-cell>
+</i-cell-group>
+</view>
+<picker mode="selector" range="{{['男','女']}}">我们</picker>

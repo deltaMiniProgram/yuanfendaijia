@@ -1,0 +1,23 @@
+page{
+  font-family: 'Microsoft-YaHei'
+}
+.personal-user{
+  display: flex;
+  flex-direction:row;
+}
+.personal-user-img{
+  margin-right: 20rpx;
+}
+.personal-user-info view{
+  line-height: 60rpx;
+}
+.personal-user-img{
+  margin-top: 10rpx;
+}
+.personal-user-remain{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.personal-user-money{
+  color: green;
+}
